@@ -2,6 +2,7 @@
 #include<sstream>
 #include "definitions.h"
 #include "splashstate.h"
+#include "mainmenustate.h"
 
 namespace Game {
   SplashState::SplashState(GameDataRef data)
@@ -22,13 +23,11 @@ namespace Game {
 
   void SplashState::Update(float dt){
     if(_clock.getElapsedTime().asSeconds()>SPLASH_STATE_SHOW_TIME){
-        std::cout<<"Go to main menu."<<std::endl;
-        std::cout<<"Dt = " << dt;
+        _data->machine.AddState(StateRef(new MainMenuState(_data)),true);
       }
   }
 
   void SplashState::Draw(float dt){
-    std::cout<<"Dt = " << dt;
     _data->window.clear();
     _data->window.draw(_background);
     _data->window.display();

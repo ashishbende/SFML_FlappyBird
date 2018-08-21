@@ -8,7 +8,10 @@ SOURCES += main.cpp \
     assetmanager.cpp \
     inputmanager.cpp \
     mygame.cpp \
-    splashstate.cpp
+    splashstate.cpp \
+    mainmenustate.cpp \
+    gamestate.cpp \
+    gameoverstate.cpp
 
 LIBS += -lsfml-audio
 LIBS += -lsfml-graphics
@@ -23,4 +26,7 @@ HEADERS += \
     inputmanager.h \
     mygame.h \
     definitions.h \
-    splashstate.h
+    splashstate.h \
+    mainmenustate.h \
+    gamestate.h \
+    gameoverstate.h

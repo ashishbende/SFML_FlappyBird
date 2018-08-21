@@ -55,13 +55,19 @@ SOURCES       = main.cpp \
 		assetmanager.cpp \
 		inputmanager.cpp \
 		mygame.cpp \
-		splashstate.cpp 
+		splashstate.cpp \
+		mainmenustate.cpp \
+		gamestate.cpp \
+		gameoverstate.cpp 
 OBJECTS       = main.o \
 		statemachine.o \
 		assetmanager.o \
 		inputmanager.o \
 		mygame.o \
-		splashstate.o
+		splashstate.o \
+		mainmenustate.o \
+		gamestate.o \
+		gameoverstate.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -150,12 +156,18 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		inputmanager.h \
 		mygame.h \
 		definitions.h \
-		splashstate.h main.cpp \
+		splashstate.h \
+		mainmenustate.h \
+		gamestate.h \
+		gameoverstate.h main.cpp \
 		statemachine.cpp \
 		assetmanager.cpp \
 		inputmanager.cpp \
 		mygame.cpp \
-		splashstate.cpp
+		splashstate.cpp \
+		mainmenustate.cpp \
+		gamestate.cpp \
+		gameoverstate.cpp
 QMAKE_TARGET  = FlappyBird
 DESTDIR       = 
 TARGET        = FlappyBird
@@ -399,7 +411,8 @@ mygame.o: mygame.cpp mygame.h \
 		statemachine.h \
 		state.h \
 		inputmanager.h \
-		assetmanager.h
+		assetmanager.h \
+		splashstate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mygame.o mygame.cpp
 
 splashstate.o: splashstate.cpp definitions.h \
@@ -408,8 +421,37 @@ splashstate.o: splashstate.cpp definitions.h \
 		mygame.h \
 		statemachine.h \
 		inputmanager.h \
-		assetmanager.h
+		assetmanager.h \
+		mainmenustate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o splashstate.o splashstate.cpp
+
+mainmenustate.o: mainmenustate.cpp definitions.h \
+		mainmenustate.h \
+		state.h \
+		mygame.h \
+		statemachine.h \
+		inputmanager.h \
+		assetmanager.h \
+		gamestate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainmenustate.o mainmenustate.cpp
+
+gamestate.o: gamestate.cpp definitions.h \
+		gamestate.h \
+		state.h \
+		mygame.h \
+		statemachine.h \
+		inputmanager.h \
+		assetmanager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gamestate.o gamestate.cpp
+
+gameoverstate.o: gameoverstate.cpp definitions.h \
+		gameoverstate.h \
+		state.h \
+		mygame.h \
+		statemachine.h \
+		inputmanager.h \
+		assetmanager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gameoverstate.o gameoverstate.cpp
 
 ####### Install
 
