@@ -11,7 +11,6 @@ MainMenuState::MainMenuState(GameDataRef data)
 
 void MainMenuState::Init()
 {
-    std::cout<<"Game State" <<std::endl;
     _data->assets.LoadTexture("Main Menu Background", MAIN_MENU_BACKGROUND_FILEPATH);
     _data->assets.LoadTexture("Game Title", GAME_TITLE_FILEPATH );
     _data->assets.LoadTexture("Play Button", PLAY_BUTTON_FILEPATH);

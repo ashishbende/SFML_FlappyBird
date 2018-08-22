@@ -58,7 +58,10 @@ SOURCES       = main.cpp \
 		splashstate.cpp \
 		mainmenustate.cpp \
 		gamestate.cpp \
-		gameoverstate.cpp 
+		gameoverstate.cpp \
+		pipe.cpp \
+		land.cpp \
+		bird.cpp 
 OBJECTS       = main.o \
 		statemachine.o \
 		assetmanager.o \
@@ -67,7 +70,10 @@ OBJECTS       = main.o \
 		splashstate.o \
 		mainmenustate.o \
 		gamestate.o \
-		gameoverstate.o
+		gameoverstate.o \
+		pipe.o \
+		land.o \
+		bird.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -159,7 +165,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		splashstate.h \
 		mainmenustate.h \
 		gamestate.h \
-		gameoverstate.h main.cpp \
+		gameoverstate.h \
+		pipe.h \
+		land.h \
+		bird.h main.cpp \
 		statemachine.cpp \
 		assetmanager.cpp \
 		inputmanager.cpp \
@@ -167,7 +176,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		splashstate.cpp \
 		mainmenustate.cpp \
 		gamestate.cpp \
-		gameoverstate.cpp
+		gameoverstate.cpp \
+		pipe.cpp \
+		land.cpp \
+		bird.cpp
 QMAKE_TARGET  = FlappyBird
 DESTDIR       = 
 TARGET        = FlappyBird
@@ -432,7 +444,10 @@ mainmenustate.o: mainmenustate.cpp definitions.h \
 		statemachine.h \
 		inputmanager.h \
 		assetmanager.h \
-		gamestate.h
+		gamestate.h \
+		pipe.h \
+		land.h \
+		bird.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainmenustate.o mainmenustate.cpp
 
 gamestate.o: gamestate.cpp definitions.h \
@@ -441,7 +456,11 @@ gamestate.o: gamestate.cpp definitions.h \
 		mygame.h \
 		statemachine.h \
 		inputmanager.h \
-		assetmanager.h
+		assetmanager.h \
+		pipe.h \
+		land.h \
+		bird.h \
+		gameoverstate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gamestate.o gamestate.cpp
 
 gameoverstate.o: gameoverstate.cpp definitions.h \
@@ -452,6 +471,33 @@ gameoverstate.o: gameoverstate.cpp definitions.h \
 		inputmanager.h \
 		assetmanager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gameoverstate.o gameoverstate.cpp
+
+pipe.o: pipe.cpp pipe.h \
+		mygame.h \
+		statemachine.h \
+		state.h \
+		inputmanager.h \
+		assetmanager.h \
+		definitions.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pipe.o pipe.cpp
+
+land.o: land.cpp land.h \
+		mygame.h \
+		statemachine.h \
+		state.h \
+		inputmanager.h \
+		assetmanager.h \
+		definitions.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o land.o land.cpp
+
+bird.o: bird.cpp bird.h \
+		definitions.h \
+		mygame.h \
+		statemachine.h \
+		state.h \
+		inputmanager.h \
+		assetmanager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bird.o bird.cpp
 
 ####### Install
 

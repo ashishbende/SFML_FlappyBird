@@ -11,7 +11,10 @@ SOURCES += main.cpp \
     splashstate.cpp \
     mainmenustate.cpp \
     gamestate.cpp \
-    gameoverstate.cpp
+    gameoverstate.cpp \
+    pipe.cpp \
+    land.cpp \
+    bird.cpp
 
 LIBS += -lsfml-audio
 LIBS += -lsfml-graphics
@@ -29,4 +32,7 @@ HEADERS += \
     splashstate.h \
     mainmenustate.h \
     gamestate.h \
-    gameoverstate.h
+    gameoverstate.h \
+    pipe.h \
+    land.h \
+    bird.h
