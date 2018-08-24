@@ -84,6 +84,7 @@ void GameState::Update(float dt)
             if (collision.CheckSpriteCollision(bird->GetSprite(), 0.7f, landSprites.at(i), 1.0f))
             {
                 _gameState = GameStates::eGameOver;
+                _clock.restart();
             }
 
         }
@@ -94,6 +95,7 @@ void GameState::Update(float dt)
             if (collision.CheckSpriteCollision(bird->GetSprite(), 0.625f, pipeSprites.at(i), 1.0f))
             {
                 _gameState = GameStates::eGameOver;
+                _clock.restart();
             }
 
         }
@@ -116,6 +118,10 @@ void GameState::Update(float dt)
     if (GameStates::eGameOver == _gameState)
     {
         flash->Show(dt);
+        if (_clock.getElapsedTime().asSeconds() > TIME_BEFORE_GAME_OVER_APPEARS)
+        {
+            _data->machine.AddState(StateRef(new GameOverState(_data, _score)), true);
+        }
     }
 }
 

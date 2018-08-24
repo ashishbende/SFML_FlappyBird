@@ -17,7 +17,7 @@
 #define GAME_BACKGROUND_FILEPATH "Resources/res/sky.png"
 
 // game over
-#define GAME_OVER_BACKGROUND_FILEPATH "Resources/res/Game-Over-Title.png"
+#define GAME_OVER_BACKGROUND_FILEPATH "Resources/res/sky.png"
 
 // pipes
 #define PIPE_UP_BACKGROUND_FILEPATH "Resources/res/PipeUp.png"
@@ -59,4 +59,23 @@ enum GameStates
 // gamescore
 #define SCORING_PIPE_FILEPATH "Resources/res/InvisibleScoringPipe.png"
 #define FLAPPY_FONT_FILEPATH "Resources/fonts/FlappyFont.ttf"
+#define HIGHSCORE_FILE_PATH "Resources/Highscore.txt"
+
+#define BRONZE_MEDAL_FILEPATH "Resources/res/Bronze-Medal.png"
+#define SILVER_MEDAL_FILEPATH "Resources/res/Silver-Medal.png"
+#define GOLD_MEDAL_FILEPATH "Resources/res/Gold-Medal.png"
+#define PLATINUM_MEDAL_FILEPATH "Resources/res/Platinum-Medal.png"
+
+#define BRONZE_MEDAL_SCORE 0
+#define SILVER_MEDAL_SCORE 10
+#define GOLD_MEDAL_SCORE 25
+#define PLATINUM_MEDAL_SCORE 100
+
+
+
+
+// gameover title
+#define GAME_OVER_TITLE_FILEPATH "Resources/res/Game-Over-Title.png"
+#define GAME_OVER_BODY_FILEPATH "Resources/res/Game-Over-Body.png"
+#define TIME_BEFORE_GAME_OVER_APPEARS 1.5f
 #endif // DEFINITIONS_H
