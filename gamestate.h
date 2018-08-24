@@ -7,6 +7,9 @@
 #include "pipe.h"
 #include "land.h"
 #include "bird.h"
+#include "collision.h"
+#include "flash.h"
+#include "hud.h"
 
 
 namespace Game {
@@ -26,6 +29,11 @@ private:
     Pipe *pipe;
     Land *land;
     Bird *bird;
+    Collision collision;
+    Flash *flash;
+    Hud *hud;
+    int _gameState;
+    int _score;
 };
 }
 

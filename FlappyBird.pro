@@ -14,7 +14,10 @@ SOURCES += main.cpp \
     gameoverstate.cpp \
     pipe.cpp \
     land.cpp \
-    bird.cpp
+    bird.cpp \
+    collision.cpp \
+    flash.cpp \
+    hud.cpp
 
 LIBS += -lsfml-audio
 LIBS += -lsfml-graphics
@@ -35,4 +38,7 @@ HEADERS += \
     gameoverstate.h \
     pipe.h \
     land.h \
-    bird.h
+    bird.h \
+    collision.h \
+    flash.h \
+    hud.h

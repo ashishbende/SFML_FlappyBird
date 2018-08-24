@@ -61,7 +61,10 @@ SOURCES       = main.cpp \
 		gameoverstate.cpp \
 		pipe.cpp \
 		land.cpp \
-		bird.cpp 
+		bird.cpp \
+		collision.cpp \
+		flash.cpp \
+		hud.cpp 
 OBJECTS       = main.o \
 		statemachine.o \
 		assetmanager.o \
@@ -73,7 +76,10 @@ OBJECTS       = main.o \
 		gameoverstate.o \
 		pipe.o \
 		land.o \
-		bird.o
+		bird.o \
+		collision.o \
+		flash.o \
+		hud.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -168,7 +174,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		gameoverstate.h \
 		pipe.h \
 		land.h \
-		bird.h main.cpp \
+		bird.h \
+		collision.h \
+		flash.h \
+		hud.h main.cpp \
 		statemachine.cpp \
 		assetmanager.cpp \
 		inputmanager.cpp \
@@ -179,7 +188,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		gameoverstate.cpp \
 		pipe.cpp \
 		land.cpp \
-		bird.cpp
+		bird.cpp \
+		collision.cpp \
+		flash.cpp \
+		hud.cpp
 QMAKE_TARGET  = FlappyBird
 DESTDIR       = 
 TARGET        = FlappyBird
@@ -447,7 +459,10 @@ mainmenustate.o: mainmenustate.cpp definitions.h \
 		gamestate.h \
 		pipe.h \
 		land.h \
-		bird.h
+		bird.h \
+		collision.h \
+		flash.h \
+		hud.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainmenustate.o mainmenustate.cpp
 
 gamestate.o: gamestate.cpp definitions.h \
@@ -460,6 +475,9 @@ gamestate.o: gamestate.cpp definitions.h \
 		pipe.h \
 		land.h \
 		bird.h \
+		collision.h \
+		flash.h \
+		hud.h \
 		gameoverstate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gamestate.o gamestate.cpp
 
@@ -498,6 +516,27 @@ bird.o: bird.cpp bird.h \
 		inputmanager.h \
 		assetmanager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bird.o bird.cpp
+
+collision.o: collision.cpp collision.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o collision.o collision.cpp
+
+flash.o: flash.cpp flash.h \
+		mygame.h \
+		statemachine.h \
+		state.h \
+		inputmanager.h \
+		assetmanager.h \
+		definitions.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o flash.o flash.cpp
+
+hud.o: hud.cpp hud.h \
+		definitions.h \
+		mygame.h \
+		statemachine.h \
+		state.h \
+		inputmanager.h \
+		assetmanager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hud.o hud.cpp
 
 ####### Install
 

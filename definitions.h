@@ -45,4 +45,18 @@
 #define ROTATION_LIMIT 25.0f
 
 #define GRAVITY 350.0f
+
+// game states
+enum GameStates
+{
+    eReady,
+    ePlaying,
+    eGameOver
+};
+
+#define FLASH_SPEED 1500.0f
+
+// gamescore
+#define SCORING_PIPE_FILEPATH "Resources/res/InvisibleScoringPipe.png"
+#define FLAPPY_FONT_FILEPATH "Resources/fonts/FlappyFont.ttf"
 #endif // DEFINITIONS_H
