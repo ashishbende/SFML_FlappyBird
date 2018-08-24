@@ -10,6 +10,23 @@ GameState::GameState(GameDataRef data)
 
 void GameState::Init()
 {
+    if (!_hitSoundBuffer.loadFromFile(HIT_SOUND_FILEPATH))
+    {
+        std::cerr << "Error loading hit sound effect." << std::endl;
+    }
+    if (!_pointSoundBuffer.loadFromFile(POINT_SOUND_FILEPATH))
+    {
+        std::cerr << "Error loading point sound effect." << std::endl;
+    }
+    if (!_wingSoundBuffer.loadFromFile(WING_SOUND_FILEPATH))
+    {
+        std::cerr << "Error loading wing sound effect." << std::endl;
+    }
+
+    _hitSound.setBuffer(_hitSoundBuffer);
+    _pointSound.setBuffer(_pointSoundBuffer);
+    _wingSound.setBuffer(_wingSoundBuffer);
+
     _data->assets.LoadTexture("Game Background", GAME_BACKGROUND_FILEPATH);
     _data->assets.LoadTexture("Pipe Up", PIPE_UP_BACKGROUND_FILEPATH);
     _data->assets.LoadTexture("Pipe Down", PIPE_DOWN_BACKGROUND_FILEPATH);
@@ -53,6 +70,7 @@ void GameState::HandleInput()
             {
                 _gameState = GameStates::ePlaying;
                 bird->Tap();
+                _wingSound.play();
             }
         }
     }
@@ -85,6 +103,7 @@ void GameState::Update(float dt)
             {
                 _gameState = GameStates::eGameOver;
                 _clock.restart();
+                _hitSound.play();
             }
 
         }
@@ -96,6 +115,7 @@ void GameState::Update(float dt)
             {
                 _gameState = GameStates::eGameOver;
                 _clock.restart();
+                _hitSound.play();
             }
 
         }
@@ -110,6 +130,7 @@ void GameState::Update(float dt)
                     _score++;
                     hud->UpdateScore(_score);
                     scoringPipes.erase(scoringPipes.begin() + i);
+                    _pointSound.play();
                 }
 
             }

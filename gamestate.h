@@ -2,6 +2,8 @@
 #define GAMESHATE_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 #include "state.h"
 #include "mygame.h"
 #include "pipe.h"
@@ -24,8 +26,18 @@ public:
 
 private:
     GameDataRef _data;
+
     sf::Sprite _background;
     sf::Clock _clock;
+
+    sf::SoundBuffer _hitSoundBuffer;
+    sf::SoundBuffer _pointSoundBuffer;
+    sf::SoundBuffer _wingSoundBuffer;
+
+    sf::Sound _hitSound;
+    sf::Sound _pointSound;
+    sf::Sound _wingSound;
+
     Pipe *pipe;
     Land *land;
     Bird *bird;
